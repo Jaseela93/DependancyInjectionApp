@@ -1,11 +1,17 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using DependancyInjection.Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+// builder.Services.AddTransient<DemoLogic>();
+builder.Services.AddScoped<DemoLogic>();
+//builder.Services.AddSingletone<DemoLogic>();
+
 
 var app = builder.Build();
 
