@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using DependancyInjection.Logic;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,10 @@ builder.Services.AddServerSideBlazor();
 // builder.Services.AddScoped<IDemoLogic, DemoLogic>();
 //builder.Services.AddSingletone<DemoLogic>();
 
+builder.Host.UseSerilog((context, config) =>
+{
+    config.WriteTo.Console();
+});
 
 var app = builder.Build();
 
