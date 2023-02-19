@@ -8,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-// builder.Services.AddTransient<DemoLogic>();
-builder.Services.AddScoped<DemoLogic>();
+ builder.Services.AddTransient<IDemoLogic, BetterDemoLogic>();
+// builder.Services.AddScoped<IDemoLogic, DemoLogic>();
 //builder.Services.AddSingletone<DemoLogic>();
 
 
